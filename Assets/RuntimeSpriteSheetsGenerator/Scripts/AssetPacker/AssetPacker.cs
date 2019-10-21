@@ -170,12 +170,17 @@ namespace DaVikingCode.AssetPacker {
 			
 			int numFiles = Directory.GetFiles(savePath).Length;
 
+            string path = "";
 			for (int i = 0; i < numFiles / 2; ++i) {
 
-				WWW loaderTexture = new WWW("file:///" + savePath + "/data" + i + ".png");
+                path = savePath + "/data" + i + ".png";
+                if (!File.Exists(path)) continue;
+                WWW loaderTexture = new WWW("file:///" + path);
 				yield return loaderTexture;
 
-				WWW loaderJSON = new WWW("file:///" + savePath + "/data" + i + ".json");
+                path = savePath + "/data" + i + ".json";
+                if (!File.Exists(path)) continue;
+                WWW loaderJSON = new WWW("file:///" + path);
 				yield return loaderJSON;
 
 				TextureAssets textureAssets = JsonUtility.FromJson<TextureAssets> (loaderJSON.text);

@@ -14,9 +14,9 @@ public class AssetPackerExample : MonoBehaviour {
 	void Start () {
 
 		// We just copy and paste files, so you don't have to do it manually.
-		CopyPasteFoldersAndPNG(Application.dataPath + "/RuntimeSpriteSheetsGenerator/Demos/Sprites", Application.persistentDataPath);
+		CopyPasteFoldersAndPNG(Application.dataPath + "/RuntimeSpriteSheetsGenerator/Demos/Sprites", Application.dataPath);
 
-		string[] files = Directory.GetFiles(Application.persistentDataPath + "/Textures", "*.png");
+		string[] files = Directory.GetFiles(Application.dataPath + "/Textures", "*.png");
 
 		assetPacker = GetComponent<AssetPacker>();
 
