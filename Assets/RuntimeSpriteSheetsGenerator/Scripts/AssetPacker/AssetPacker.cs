@@ -43,7 +43,7 @@ namespace DaVikingCode.AssetPacker {
 				if (cacheName == "")
 					throw new Exception("No cache name specified");
 
-				string path = Application.persistentDataPath + "/AssetPacker/" + cacheName + "/" + cacheVersion + "/";
+				string path = Application.dataPath + "/AssetPacker/" + cacheName + "/" + cacheVersion + "/";
 
 				bool cacheExist = Directory.Exists(path);
 
@@ -61,8 +61,8 @@ namespace DaVikingCode.AssetPacker {
 
 			if (savePath != "") {
 
-				if (deletePreviousCacheVersion && Directory.Exists(Application.persistentDataPath + "/AssetPacker/" + cacheName + "/"))
-					foreach (string dirPath in Directory.GetDirectories(Application.persistentDataPath + "/AssetPacker/" + cacheName + "/", "*", SearchOption.AllDirectories))
+				if (deletePreviousCacheVersion && Directory.Exists(Application.dataPath + "/AssetPacker/" + cacheName + "/"))
+					foreach (string dirPath in Directory.GetDirectories(Application.dataPath + "/AssetPacker/" + cacheName + "/", "*", SearchOption.AllDirectories))
 						Directory.Delete(dirPath, true);
 
 				Directory.CreateDirectory(savePath);
